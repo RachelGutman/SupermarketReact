@@ -24,7 +24,7 @@ export default function Home() {
                         <CardMedia
                             component="img"
                             height="70%"
-                            image={'/src/assets/' + l.image}
+                            image={ l.image}
                             alt={l.title}
                         />
                         <CardContent>

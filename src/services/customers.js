@@ -6,7 +6,7 @@ async function getCustomers() {
 }
 
 async function getCollection(collectionName) {
-    const { data } = await axios.get(`/src/DB/${collectionName}.json`)
+    const { data } = await axios.get(`DB/${collectionName}.json`)
     return data
 }
 
