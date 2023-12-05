@@ -35,6 +35,8 @@ function TopMenu() {
             alignItems: 'center',
             color: '#fff',
             fontSize: '25px',
+            filter: 'brightness(0) invert(1)',
+            marginRight: '10px'
         }
     }
 
@@ -45,7 +47,7 @@ function TopMenu() {
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} >
                         <Link to="/" style={{ ...style.homeLink, marginRight: '25px' } }>
-                            <img src="/favicon.svg" style={{ marginRight: '10px', filter: 'brightness(0) invert(1)' }} />
+                            <img src="../favicon.svg" style={{ marginRight: '10px', filter: 'brightness(0) invert(1)' }} />
                             My Supermarket
                         </Link>
                     </Box>
@@ -88,7 +90,7 @@ function TopMenu() {
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} >
                         <Link to="/" style={{ display: 'flex', alignItems: 'center', color: '#fff', fontSize: '25px' }}>
-                            <img src="/favicon.svg" style={style.homeLink} />
+                            <img src="../favicon.svg" style={style.homeLink} />
                             My Supermarket
                         </Link>
                     </Box>
