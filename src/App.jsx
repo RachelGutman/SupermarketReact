@@ -4,7 +4,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-// import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
 import customersServices from './services/customers'
@@ -58,10 +58,10 @@ function App({ children }) {
 
   return (
     <>
-      {/* <TopMenu /> */}
-      {/* {children} */}
-      <RouterProvider router={router} />
-      {/* {dataLoaded && 
+      <TopMenu />
+      {children}
+      {/* <RouterProvider router={router} /> */}
+      {dataLoaded && 
    
         <Routes>
           <Route path='/' element={<Home />} />
@@ -75,14 +75,7 @@ function App({ children }) {
           </Route>
           <Route path='/purches' element={<DynamicTable collectionName="purches" columns={['id', 'customer_id', 'product_id', 'date']} />} />
         </Routes>
-       } */}
-
-
-
-
-
-
-
+       }
     </>
   )
 }
