@@ -14,11 +14,11 @@ export default function Home() {
     return (
         <div style={{ 'display': 'flex', 'justifyContent': 'center', 'flexWrap': 'wrap' }}>
             <h1 style={{ width: '100%' }}>My Supermarket
-                <h5 style={{ fontSize: '40%' }}>React course Project</h5>
+                <div style={{ fontSize: '40%' }}>React course Project</div>
             </h1>
 
-            {common.Links.map(l =>
-                <Card sx={{ maxWidth: 500 }} style={{ 'margin': '20px', 'width': '23%' }}>
+            {common.Links.map((l,index) =>
+                <Card key={index} sx={{ maxWidth: 500 }} style={{ 'margin': '20px', 'width': '23%' }}>
                     <Link to={l.url}>
                     <CardActionArea>
                         <CardMedia
@@ -28,7 +28,7 @@ export default function Home() {
                             alt={l.title}
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="a">
+                            <Typography gutterBottom variant="h5" >
                                 {l.title}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">

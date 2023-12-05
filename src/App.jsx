@@ -4,7 +4,8 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
 import customersServices from './services/customers'
 import Actions from './services/Actions'
@@ -17,7 +18,28 @@ import Product from './Product';
 import { useDispatch } from 'react-redux';
 import Customer from './Customer';
 
-function App() {
+const router = createBrowserRouter([
+  {
+    element: <><TopMenu /><Outlet /></>, children: [
+      { path: '/', element: <Home /> },
+      {
+        path: '/customers', children: [
+          { path: '', element: <DynamicTable collectionName="customers" columns={['id', 'first_name', 'last_name', 'city']} /> },
+          { path: ':id', element: <Customer /> },
+        ]
+      },
+      {
+        path: '/products', children: [
+          { path: '', element: <DynamicTable collectionName="products" columns={['id', 'name', 'price', 'quentity']} /> },
+          { path: ':id', element: <Product /> },
+        ]
+      },
+      { path: '/purches', element: <DynamicTable collectionName="purches" columns={['id', 'customer_id', 'product_id', 'date']} /> },
+    ]
+  }]
+  , { basename: import.meta.env.BASE_URL })
+
+function App({ children }) {
   const [dataLoaded, setDataLoaded] = useState(false)
 
   const dispatch = useDispatch()
@@ -36,8 +58,11 @@ function App() {
 
   return (
     <>
-      <TopMenu />
-      {dataLoaded &&
+      {/* <TopMenu /> */}
+      {/* {children} */}
+      <RouterProvider router={router} />
+      {/* {dataLoaded && 
+   
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/customers' >
@@ -49,7 +74,8 @@ function App() {
             <Route path=':id' element={<Product />} />
           </Route>
           <Route path='/purches' element={<DynamicTable collectionName="purches" columns={['id', 'customer_id', 'product_id', 'date']} />} />
-        </Routes>}
+        </Routes>
+       } */}
 
 
 
