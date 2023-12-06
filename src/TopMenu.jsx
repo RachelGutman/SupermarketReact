@@ -28,6 +28,9 @@ function TopMenu() {
         setAnchorElNav(null)
         navigate(url);
     };
+    const gotoGithub = ()=> {
+         location.href = 'https://github.com/RachelGutman/SupermarketReact'
+    }
 
     const style = {
         homeLink: {
@@ -86,6 +89,9 @@ function TopMenu() {
                                     <Typography textAlign="center">{page.title}</Typography>
                                 </MenuItem>
                             ))}
+                            <MenuItem onClick={gotoGithub}>
+                                <Typography textAlign="center">About Project</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} >
@@ -104,6 +110,12 @@ function TopMenu() {
                                 {page.title}
                             </Button>
                         ))}
+                        <Button
+                            onClick={gotoGithub}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            About Project
+                        </Button>
                     </Box>
                 </Toolbar>
             </Container>
